@@ -1,7 +1,5 @@
 package org.zmp.gui;
 
-import org.zmp.model.Room;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -16,14 +14,17 @@ public class AppGUI {
     public AppGUI(){
         frame = new JFrame("Alarm");
         panel = new JPanel(new BorderLayout());
-        Panel buildingPanel = new Panel();
+        BuildingPlan buildingPlan = new BuildingPlan();
+        buildingPlan.setLayout(null);
+
+
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(new Dimension(960, 540));
         frame.setLocationRelativeTo(null);
-        frame.setContentPane(panel);
+        frame.add(panel);
 //        final JScrollPane scroll = new JScrollPane(panel);
 
-        panel.add(new JScrollPane(buildingPanel), BorderLayout.CENTER);
+        panel.add(new JScrollPane(buildingPlan), BorderLayout.CENTER);
 
         frame.setVisible(true);
     }

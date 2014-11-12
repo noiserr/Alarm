@@ -13,4 +13,7 @@ public class Message {
     public void showName(){
         System.out.println("My name is " + name);
     }
+    public void showCos(){
+        System.out.printf("gunwo");
+    }
 }

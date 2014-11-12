@@ -12,10 +12,12 @@ public class LogginAspect {
 //    public void logging(){
 //        System.out.println("Ha! My name is...");
 //    }
-    @Before("allMessageMethods()")
+    @After("allMessageMethods()")
     public void loggingAdvice(JoinPoint joinPoint){
-        Message msg = (Message) joinPoint.getTarget();
-        System.out.println(msg.getName());
+//        Message msg = (Message) joinPoint.getTarget();
+//        System.out.println(msg.getName());
+        System.out.println("Loguje");
+
     }
 
     @Pointcut("execution(* show*())")
