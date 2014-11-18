@@ -38,8 +38,16 @@ public class Room extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        g.setColor(new Color(118, 38, 139));
-        g2d.drawRect(0, 0, WIDTH - 1, HEIGHT - 1);
+
+        Color color1 = new Color(186, 196, 206);
+        Color color2 = new Color(126, 136, 146);
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, getHeight(), color2);
+
+        g2d.setPaint(gp);
+
+        g2d.fillRect(0, 0, WIDTH, HEIGHT );
+        g2d.setPaint(new Color(4, 2, 4, 195));
+        g.drawRect(0, 0, WIDTH - 1, HEIGHT - 1);
 
     }
 

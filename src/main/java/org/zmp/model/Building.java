@@ -24,8 +24,8 @@ public class Building extends JPanel {
         super();
 
         setImg();
-        setPreferredSize(new Dimension(buildingImg.getWidth(),buildingImg.getHeight()));
-        setBackground(new Color(198, 226, 204));
+        setPreferredSize(new Dimension(buildingImg.getWidth(), buildingImg.getHeight()));
+        setBackground(new Color(255, 235, 252));
         roomList = roomFactory.getRooms();
         for (Room room : roomList) {
             add(room);
@@ -35,18 +35,14 @@ public class Building extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-
         g.drawImage(buildingImg, 0, 0, null);
-
-
     }
 
-    protected void setImg(){
+    protected void setImg() {
         try {
             buildingImg = ImageIO.read(new File("src/img/plan.png"));
 
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Can't locate file");
         }
     }

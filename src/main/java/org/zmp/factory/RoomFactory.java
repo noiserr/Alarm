@@ -17,7 +17,7 @@ public class RoomFactory {
     public List<Room> getRooms() {
         List<Room> list = new ArrayList<Room>();
 
-            list.add(new GarageRoom(0, 0));
+            list.add(new GarageRoom(730, 680));
 
         return list;
     }
