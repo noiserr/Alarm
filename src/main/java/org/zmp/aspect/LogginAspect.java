@@ -2,24 +2,21 @@ package org.zmp.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.zmp.model.Message;
-
-
+import java.awt.event.*;
+import javax.swing.*;
 @Aspect
 public class LogginAspect {
 
-//    @Before("allMessageMethods()")
-//    public void logging(){
-//        System.out.println("Ha! My name is...");
-//    }
+
     @After("allMessageMethods()")
-    public void loggingAdvice(JoinPoint joinPoint){
-//        Message msg = (Message) joinPoint.getTarget();
-//        System.out.println(msg.getName());
+    public void loggingAdvice(){
+
         System.out.println("Loguje");
 
     }
 
-    @Pointcut("execution(* show*())")
+    @Pointcut("within(org.zmp.model.alarm..*)")
     public void allMessageMethods(){}
+
+
 }

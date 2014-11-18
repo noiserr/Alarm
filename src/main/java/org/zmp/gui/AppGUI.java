@@ -1,5 +1,7 @@
 package org.zmp.gui;
 
+import org.zmp.model.Building;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,8 +16,8 @@ public class AppGUI {
     public AppGUI(){
         frame = new JFrame("Alarm");
         panel = new JPanel(new BorderLayout());
-        BuildingPlan buildingPlan = new BuildingPlan();
-        buildingPlan.setLayout(null);
+        Building building = new Building();
+        building.setLayout(null);
 
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -24,8 +26,9 @@ public class AppGUI {
         frame.add(panel);
 //        final JScrollPane scroll = new JScrollPane(panel);
 
-        panel.add(new JScrollPane(buildingPlan), BorderLayout.CENTER);
+        panel.add(new JScrollPane(building), BorderLayout.CENTER);
 
         frame.setVisible(true);
     }
+
 }

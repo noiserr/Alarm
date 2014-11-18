@@ -9,9 +9,7 @@
 
     <aop:aspectj-autoproxy/>
 
-    <bean name="message" class="org.zmp.model.Message">
-        <property name="name" value="Slim Szejdi"/>
-    </bean>
+
 
 
 
