@@ -1,7 +1,6 @@
 package org.zmp.model.room;
 
-import org.zmp.model.alarm.Alarm;
-import org.zmp.model.alarm.FireAlarm;
+import org.zmp.model.alarm.*;
 
 import javax.swing.*;
 
@@ -16,5 +15,10 @@ public class GarageRoom extends  Room {
         super(posX, posY);
         roomName.setText(name);
         buttonPanel.add(new FireAlarm(name));
+        buttonPanel.add(new WindowAlarm(name));
+        buttonPanel.add(new SmokeAlarm(name));
+        buttonPanel.add(new MoveAlarm(name));
+//        buttonPanel.add(new NoiseAlarm(name));
+
     }
 }

@@ -1,6 +1,7 @@
 package org.zmp.model.logger;
 
 import javax.swing.*;
+import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -17,14 +18,25 @@ public class EventLogger extends JTextArea {
 
     private EventLogger() {
         super(5,20);
+        setBackground(new Color(0, 0, 0));
+        Font font = new Font("Verdana", Font.BOLD, 12);
+        setFont(font);
+        setForeground(new Color(0, 175, 19, 254));
+
+        Date dNow = new Date( );
+        SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        append("System start date: "+ ft.format(dNow));
     }
 
-    public void pisz(String roomName){
+    public void pisz(String roomName, String information){
 
 //        Date dNow = new Date( );
 //        SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
 //        System.out.println(i);
-//        i++;
-        append("\n Fire in" + roomName);
+//
+        append("\n"+ information + " in "+ roomName + " " +i);
+        i++;
+        setCaretPosition(getDocument().getLength());
+
     }
 }

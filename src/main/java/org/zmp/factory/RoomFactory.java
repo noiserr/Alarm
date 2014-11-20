@@ -1,3 +1,4 @@
+
 package org.zmp.factory;
 
 import org.zmp.model.room.GarageRoom;
@@ -17,7 +18,8 @@ public class RoomFactory {
     public List<Room> getRooms() {
         List<Room> list = new ArrayList<Room>();
 
-            list.add(new GarageRoom(730, 680));
+        list.add(new GarageRoom(730, 680));
+        list.add(new GarageRoom(200, 200));
 
         return list;
     }

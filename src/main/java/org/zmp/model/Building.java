@@ -25,7 +25,7 @@ public class Building extends JPanel {
 
         setImg();
         setPreferredSize(new Dimension(buildingImg.getWidth(), buildingImg.getHeight()));
-        setBackground(new Color(255, 235, 252));
+        setBackground(new Color(198, 198, 198));
         roomList = roomFactory.getRooms();
         for (Room room : roomList) {
             add(room);

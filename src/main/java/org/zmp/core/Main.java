@@ -10,7 +10,6 @@ import org.zmp.model.Message;
  */
 public class Main {
     public static void main(String[] args) {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 
         //message.showName();
         AppGUI app = new AppGUI();

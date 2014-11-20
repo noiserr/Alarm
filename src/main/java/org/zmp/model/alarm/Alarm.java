@@ -1,7 +1,10 @@
 package org.zmp.model.alarm;
 
 
+import org.zmp.model.logger.EventLogger;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +19,7 @@ public class Alarm extends JButton {
 
     public Alarm(String name) {
         this.name = name;
+        //setMargin(new Insets(3,25,3,25));
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -25,7 +29,7 @@ public class Alarm extends JButton {
     }
 
     public void detect() {
-
+        EventLogger.getInstance().pisz(name, information);
     }
 
 }

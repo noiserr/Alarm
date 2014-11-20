@@ -25,20 +25,20 @@ public class AppGUI {
 
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(new Dimension(960, 540));
+        frame.setSize(new Dimension(1080, 700));
         frame.setLocationRelativeTo(null);
         frame.add(panel);
+        frame.setResizable(false);
 //        final JScrollPane scroll = new JScrollPane(panel);
+
         logger = EventLogger.getInstance();
         logger.setEditable(false);
-        DefaultCaret caret = (DefaultCaret)logger.getCaret();
-        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 
-        panel.add(new JScrollPane(logger), BorderLayout.NORTH);
+        JScrollPane loggerS = new JScrollPane(logger, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panel.add(loggerS, BorderLayout.NORTH);
         panel.add(new JScrollPane(building), BorderLayout.CENTER);
-        for (int i = 0; i < 10 ; i++) {
-            logger.append("\n String nr: " + i);
-        }
+
         frame.setVisible(true);
     }
 

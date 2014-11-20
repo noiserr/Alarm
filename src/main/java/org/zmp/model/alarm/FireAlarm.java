@@ -12,13 +12,8 @@ public class FireAlarm extends Alarm {
     public FireAlarm(String name) {
         super(name);
         information="FIRE";
-        setMargin(new Insets(3,15,3,15));
         setText(information);
     }
 
-    @Override
-    public void detect(){
-        EventLogger.getInstance().pisz(name);
 
-    }
 }
