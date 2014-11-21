@@ -20,10 +20,14 @@ public class Building extends JPanel {
     RoomFactory roomFactory = new RoomFactory();
     BufferedImage buildingImg = null;
 
-    public Building() {
+    public Building(String path) {
         super();
 
-        setImg();
+        System.out.print(path);
+
+//        String src = "src/img/plan.png";
+
+        setImg(path);
         setPreferredSize(new Dimension(buildingImg.getWidth(), buildingImg.getHeight()));
         setBackground(new Color(198, 198, 198));
         roomList = roomFactory.getRooms();
@@ -38,9 +42,9 @@ public class Building extends JPanel {
         g.drawImage(buildingImg, 0, 0, null);
     }
 
-    protected void setImg() {
+    protected void setImg(String path) {
         try {
-            buildingImg = ImageIO.read(new File("src/img/plan.png"));
+            buildingImg = ImageIO.read(new File(path));
 
         } catch (IOException e) {
             System.out.println("Can't locate file");
