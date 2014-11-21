@@ -102,7 +102,6 @@ public class AppGUI implements ActionListener{
                 frame.dispose();
             }
         }
-
         return path;
     }
 

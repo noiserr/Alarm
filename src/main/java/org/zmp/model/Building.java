@@ -24,7 +24,6 @@ public class Building extends JPanel {
         super();
 
         System.out.print(path);
-
 //        String src = "src/img/plan.png";
 
         setImg(path);
