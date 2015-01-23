@@ -6,7 +6,11 @@ import org.zmp.model.logger.EventLogger;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by MM on 2014-11-11.hhh
@@ -35,9 +39,10 @@ public class AppGUI implements ActionListener{
         openFile = new JMenuItem("Open file");
         exit = new JMenuItem("Exit");
 
+        ImageIcon icon = new ImageIcon("src/img/icon.png");
+        frame.setIconImage(icon.getImage());
 
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(new Dimension(1080, 700));
+        frame.setSize(new Dimension(1080,700));
         frame.setLocationRelativeTo(null);
         frame.add(panel);
         frame.setResizable(false);
@@ -55,23 +60,31 @@ public class AppGUI implements ActionListener{
         exit.addActionListener(this);
         exit.setAccelerator(KeyStroke.getKeyStroke("ctrl X"));
 
+//        System.out.println(readFile(path));
+
         logger = EventLogger.getInstance();
         logger.setEditable(false);
-
         JScrollPane loggerS = new JScrollPane(logger, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
         panel.add(loggerS, BorderLayout.SOUTH);
         panel.add(new JScrollPane(building), BorderLayout.CENTER);
+        panel.add(loggerS, BorderLayout.NORTH);
+        JScrollPane buildingS = new JScrollPane(building);
+        buildingS.getVerticalScrollBar().setUnitIncrement(10);
+        panel.add(buildingS, BorderLayout.CENTER);
+
 
         frame.setVisible(true);
-
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
+
+
 
     public void actionPerformed(ActionEvent e) {
 
         Object z = e.getSource();
         if (z == openFile){
-            JFileChooser readFile = new JFileChooser();
+            String userhome = System.getProperty("user.home");
+            JFileChooser readFile = new JFileChooser("C:");
             if (readFile.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
 
                 File image = readFile.getSelectedFile();
@@ -100,6 +113,7 @@ public class AppGUI implements ActionListener{
             int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?","Alarm", JOptionPane.YES_NO_OPTION);
             if (response == JOptionPane.YES_OPTION) {
                 frame.dispose();
+                System.exit(0);
             }
         }
         return path;

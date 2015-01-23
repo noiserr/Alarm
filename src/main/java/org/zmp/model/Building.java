@@ -4,8 +4,11 @@ import org.zmp.factory.RoomFactory;
 import org.zmp.model.room.Room;
 
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -23,15 +26,39 @@ public class Building extends JPanel {
     public Building(String path) {
         super();
 
-        System.out.print(path);
-//        String src = "src/img/plan.png";
 
         setImg(path);
         setPreferredSize(new Dimension(buildingImg.getWidth(), buildingImg.getHeight()));
-        setBackground(new Color(198, 198, 198));
-        roomList = roomFactory.getRooms();
+        setBackground(new Color(88, 85, 87));
+        roomList = roomFactory.getRooms(readFile(path));
         for (Room room : roomList) {
             add(room);
+        }
+    }
+
+
+    private List<String> readFile(String filename)
+    {
+        filename = filename.substring(0, filename.length() - 3)+"txt";
+//        path += "txt";
+        System.out.println(filename);
+        List<String> records = new ArrayList<String>();
+        try
+        {
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            String line;
+            while ((line = reader.readLine()) != null)
+            {
+                records.add(line);
+            }
+            reader.close();
+            return records;
+        }
+        catch (Exception e)
+        {
+            System.err.format("Exception occurred trying to read '%s'.", filename);
+            e.printStackTrace();
+            return null;
         }
     }
 
@@ -43,8 +70,14 @@ public class Building extends JPanel {
 
     protected void setImg(String path) {
         try {
+//<<<<<<< Updated upstream
             buildingImg = ImageIO.read(new File(path));
 
+//=======
+//            buildingImg = ImageIO.read(new File("src/main/resources/08001_b_fp.jpg"));
+//            buildingImg = ImageIO.read(new File("src/img/floorplan.png"));
+//
+//>>>>>>> Stashed changes
         } catch (IOException e) {
             System.out.println("Can't locate file");
         }

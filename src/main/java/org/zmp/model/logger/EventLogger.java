@@ -18,24 +18,20 @@ public class EventLogger extends JTextArea {
 
     private EventLogger() {
         super(5,20);
-        setBackground(new Color(0, 0, 0));
-        Font font = new Font("Verdana", Font.BOLD, 12);
+        setBackground(new Color(57, 57, 57));
+        Font font = new Font("Monospace", Font.BOLD, 12);
         setFont(font);
-        setForeground(new Color(0, 175, 19, 254));
+        setForeground(new Color(255, 255, 255, 254));
 
         Date dNow = new Date( );
         SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
         append("System start date: "+ ft.format(dNow));
     }
 
-    public void pisz(String roomName, String information){
+    public void printMessage(String roomName, String information){
 
-//        Date dNow = new Date( );
-//        SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
-//        System.out.println(i);
-//
-        append("\n"+ information + " in "+ roomName + " " +i);
-        i++;
+
+       append("\n"+ information + " in "+ roomName);
         setCaretPosition(getDocument().getLength());
 
     }

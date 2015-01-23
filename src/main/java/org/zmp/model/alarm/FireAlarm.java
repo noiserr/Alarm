@@ -1,5 +1,6 @@
 package org.zmp.model.alarm;
 
+import org.zmp.model.event.FireEvent;
 import org.zmp.model.logger.EventLogger;
 
 import java.awt.*;
@@ -10,9 +11,8 @@ import java.awt.*;
 public class FireAlarm extends Alarm {
 
     public FireAlarm(String name) {
-        super(name);
-        information="FIRE";
-        setText(information);
+        super(name, "fire");
+        event = new FireEvent();
     }
 
 
